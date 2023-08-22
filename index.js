@@ -16,6 +16,8 @@ const sseResponse = (data, statusCode = 200) => {
     return `data: ${data}\n\n`;
 };
 
+app.get("/", (_, res) => res.status(200).send("Hello!"));
+
 app.get("/events", (req, res) => {
     const { clientId } = req.query;
     if (!clientId) return res.status(422).json("Client ID is missing");
